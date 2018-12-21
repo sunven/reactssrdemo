@@ -2,19 +2,25 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        client: './src/client.js',
-        bundle: './src/bundle.js'
+        client: './src/entry-client.js',
+        server: './src/entry-server.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].js"
+        filename: "[name].js",
+        chunkFilename: '[name].js'
     },
     module: {
         rules: [{
-            test: /\.(ts|tsx)?$/,
+            test: /\.(js|jsx)?$/,
             exclude: /node_modules/,
             loader: "babel-loader"
         }]
+    },
+    resolve: {
+      extensions: [
+        '.js',
+        '.jsx'
+      ]
     }
-
 }

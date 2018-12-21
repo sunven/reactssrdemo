@@ -1,32 +1,22 @@
-function template(title, initialState = {}, content = ""){
-    let scripts = '';
-    if(content){
-      scripts = ` <script>
+function template(initialState = {}, content = "") {
+  let scripts = `<script>
                      window.__STATE__ = ${JSON.stringify(initialState)}
                   </script>
-                  <script src="assets/client.js"></script>
-                  `
-    } else {
-      scripts = ` <script src="assets/bundle.js"> </script> `
-    }
-    let page = `<!DOCTYPE html>
+                  <script src="clientbuild/index.js"></script>`
+  let page = `<!DOCTYPE html>
                 <html lang="en">
                 <head>
                   <meta charset="utf-8">
-                  <title> ${title} </title>
+                  <title>服务端渲染</title>
                 </head>
                 <body>
-                  <div class="content">
-                     <div id="app" class="wrap-inner">
-                        <!--- magic happens here -->  ${content}
-                     </div>
+                  <h1>服务端渲染</h1>
+                  <div id="app">
+                    ${content}
                   </div>
-                    ${scripts}
+                  ${scripts}
                 </body>
-                </html>
-                `;
-  
-    return page;
-  }
-  
-  module.exports = template;
+                </html>`;
+  return page;
+}
+module.exports = template

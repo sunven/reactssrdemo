@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "pack": "webpack --config webpack.config.js",
-    "babel": "babel src -d views",
-    "build": "npm run pack && npm run babel"
+    "start": "nodemon --watch build --exec node \"serverbuild/index.js\"",
+    "build:server": "rimraf serverbuild && webpack --config webpack.server.conf.js",
+    "build:client": "rimraf clientbuild && webpack --config webpack.client.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -17,12 +16,22 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
-    "redux": "^4.0.1"
+    "react-router": "^4.3.1",
+    "react-router-config": "^4.4.0-beta.6",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
-    "webpack": "^4.27.1"
+    "rimraf": "^2.6.2",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.5",
+    "webpack-node-externals": "^1.7.2"
   }
 }

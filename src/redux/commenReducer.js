@@ -6,11 +6,15 @@ const DELETE_COMMENT = 'DELETE_COMMENT'
 // reducer
 export default function (state, action) {
   if (!state) {
-    state = { comments: [] }
+    state = {
+      comments: []
+    }
   }
   switch (action.type) {
     case INIT_COMMENTS:
-      return { comments: action.comments }
+      return {
+        comments: action.comments
+      }
     case ADD_COMMENT:
       return {
         comments: [...state.comments, action.comment]
@@ -28,14 +32,31 @@ export default function (state, action) {
 }
 
 // action creators
-export const initComments = (comments) => {
-  return { type: INIT_COMMENTS, comments }
+export const initComments = () => {
+  return (dispatch) => {
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Bar Data");
+      }, 3000);
+    }).then(data => {
+      dispatch({
+        type: INIT_COMMENTS,
+        comments: [data]
+      });
+    })
+  }
 }
 
 export const addComment = (comment) => {
-  return { type: ADD_COMMENT, comment }
+  return {
+    type: ADD_COMMENT,
+    comment
+  }
 }
 
 export const deleteComment = (commentIndex) => {
-  return { type: DELETE_COMMENT, commentIndex }
+  return {
+    type: DELETE_COMMENT,
+    commentIndex
+  }
 }

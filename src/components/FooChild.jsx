@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-class Foo extends Component {
+class FooChild extends Component {
   render() {
     return (
       <div>
-        <h2>Foo</h2>
+        <h2>FooChild</h2>
         <p>comments:{this.props.comments.join()}</p>
         <button onClick={this.props.add}>add</button>
         <button onClick={this.props.del}>del</button>
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Foo);
+export default connect(mapStateToProps,mapDispatchToProps)(FooChild);
