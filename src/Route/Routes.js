@@ -7,15 +7,19 @@ import NotFound from '../components/NotFound';
 export default [{
     path: '/Bar',
     component: Bar,
+    exact:true
   }, {
     path: '/Foo',
     component: Foo,
+    exact:true,
     routes: [{
       path: '/Foo/FooChild',
-      component: FooChild,
+      exact:true,
+      component: FooChild
     }]
   }, {
     path: '/',
+    exact:true,
     component: () => <div> Index </div>,
   },
   {

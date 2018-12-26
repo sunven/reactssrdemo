@@ -18,7 +18,5 @@ export default (store,routes, req, context) =>{
     </Provider>
   );
 
-  //用于存储在客户端
-  const preloadedState = store.getState()
-  return {content, preloadedState};
+  return content;
 }

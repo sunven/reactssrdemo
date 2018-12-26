@@ -34,7 +34,7 @@ export default function (state, action) {
 // action creators
 export const initComments = () => {
   return (dispatch) => {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve("Bar Data");
       }, 3000);
